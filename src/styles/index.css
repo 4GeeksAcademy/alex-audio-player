@@ -9,3 +9,9 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+button {
+    border: none;
+    margin: 0 5px;
+    background-color: transparent;
+    padding: 5px;
+}
