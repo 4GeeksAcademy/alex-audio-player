@@ -43,7 +43,11 @@ const Home = () => {
 		setIsPlaying(true)
 	
 		let currentIndex = songs.findIndex((item)=> item.url === currentSong)
-		if (currentIndex <= 0) return 
+		if (currentIndex === 0) {
+			setCurrentSong(songs.at(-1).url)
+			songCurrentTime.current = 0
+			return
+	} 
 		
 		setCurrentSong(songs[currentIndex - 1].url)
 		songCurrentTime.current = 0
@@ -51,7 +55,11 @@ const Home = () => {
 	const nextButton = () => {
 		setIsPlaying(true)
 		let currentIndex = songs.findIndex((item)=> item.url === currentSong)
-		if (currentIndex >= songs.length) return 
+		if (currentIndex === songs.length -1) {
+			setCurrentSong(songs[0].url)
+			songCurrentTime.current = 0
+			return
+		} 
 		
 		setCurrentSong(songs[currentIndex + 1].url)
 		songCurrentTime.current = 0
